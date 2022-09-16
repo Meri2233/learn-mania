@@ -1,13 +1,91 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50px;
+  background-color: aqua;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.signupbutton {
+  padding: 5px;
+  border-radius: 2px;
+  border: none;
+}
+
+.signup,
+.login,
+.createtemplate {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+input {
+  width: 460px;
+  height: 30px;
+  padding: 15px;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.signupsubmit {
+  width: 460px;
+  height: 40px;
+  border-radius: 2px;
+  background-color: blueviolet;
+  color: white;
+  padding: 10px;
+  margin: auto;
+}
+
+.newtemplate>p {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.addquestion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid;
+  padding: 8px;
+}
+
+.plus {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+button{
+  cursor: pointer;
 }
