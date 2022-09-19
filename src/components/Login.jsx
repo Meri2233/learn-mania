@@ -25,8 +25,8 @@ export default function Login() {
             .then(response => response.text())
             .then(result => {
                 let tokens = JSON.parse(result);
-                localStorage.setItem('access_token',tokens.accessToken);
-                localStorage.setItem('refresh_token',tokens.refreshToken);
+                localStorage.setItem('access_token', tokens.accessToken);
+                localStorage.setItem('refresh_token', tokens.refreshToken);
                 console.log(tokens);
                 navigate('/dashboard');
             })
@@ -34,7 +34,7 @@ export default function Login() {
     }
     return (
         <div className="login">
-            <h3>Login to your account</h3>
+            <h3 className='title'>Login to your account</h3>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 login(e)
@@ -47,8 +47,8 @@ export default function Login() {
                     <label htmlFor="password">Password</label><br />
                     <input type="password" name='password' className='password' placeholder="********" />
                 </div>
-                <p>Not created your teacher account? <Link to="/signup">Signup</Link> instead.</p>
-                <button className='signupsubmit' type='submit'>Login</button>
+                <p>Not created your teacher account? <Link style={{ textDecoration: 'none', color: "rgb(62,218,130)" }} to="/signup">Signup</Link> instead.</p>
+                <button className='loginsubmit' type='submit'>Login</button>
             </form>
         </div>
     )

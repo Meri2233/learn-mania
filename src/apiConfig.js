@@ -22,7 +22,7 @@ axiosClient.interceptors.response.use((res) => {
     const statusCode = err.response.status;
     if (statusCode === 401 && originalConfig.url === '/auth/token') {
         console.log("Hello");
-        return Promise.reject(err);
+        return Promise.reject(err.message);
     }
     if (statusCode === 401) {
         console.log("Hello Again")
@@ -34,7 +34,7 @@ axiosClient.interceptors.response.use((res) => {
         localStorage.setItem('access_token', tokenResponse.data.accessToken)
         return axiosClient(originalConfig)
     }
-    return Promise.reject(err)
+    return Promise.reject(err.message)
 })
 
 export default axiosClient

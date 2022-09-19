@@ -1,7 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import axiosClient from '../apiConfig';
 
 export default function CreateTemplate() {
+    let navigate = useNavigate();
+
     let createTemplate = (e) => {
         let data = new FormData(e.target);
         let title = data.get('title');
@@ -14,7 +17,10 @@ export default function CreateTemplate() {
                 title: title,
                 description: description
             }
-        }).then((response) => console.log(response))
+        }).then((response) => {
+            console.log(response)
+            navigate('/dashboard')
+        })
             .catch((error) => console.log(error))
     }
     return (

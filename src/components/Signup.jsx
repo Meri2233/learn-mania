@@ -35,7 +35,7 @@ export default function Signup() {
   }
   return (
     <div className="signup">
-      <h3>Create your Account</h3>
+      <h3 className='title'>Create your Account</h3>
       <p>Create your teacher account to post questions</p>
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -59,7 +59,7 @@ export default function Signup() {
           <input type="password" name='confirmpassword' className='confirmpassword' placeholder="********" />
         </div>
         <div className="error"></div>
-        <p>Already Joined As Teacher? <Link to="/login">Click here</Link> to login.</p>
+        <p>Already Joined As Teacher? <Link style={{ textDecoration: 'none', color: "rgb(62,218,130)" }} to="/login">Click here</Link> to login.</p>
         <button className='signupsubmit' type='submit'>Create your account</button>
       </form>
     </div>

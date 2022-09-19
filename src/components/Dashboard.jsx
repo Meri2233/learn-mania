@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, Outlet } from 'react-router-dom'
+import axiosClient from '../apiConfig'
+import { addTemplate } from '../slices/TemplateSlice'
+
 
 export default function Dashboard() {
     return (
-        <div className='dashboard'>
-            <div className="newtemplate">
-                <Link style={{ textDecoration: 'none' }} to='/newtemplate'><p>Create Template</p></Link>
-            </div>
-        </div>
+        <Outlet/>
     )
 }
