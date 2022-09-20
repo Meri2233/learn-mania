@@ -7,7 +7,6 @@ import Homepage from './Homepage'
 import Layout from './Layout'
 import Login from './Login'
 import Play from './Play'
-import Question from './Question'
 import Signup from './Signup'
 import Template from './Template'
 import GameArea from './GameArea'
@@ -42,7 +41,6 @@ export default function Main() {
         <Route path='/newtemplate' element={<CreateTemplate />} />
         <Route path='/questions/:id' element={<Template />} />
         <Route path='/play' element={<Play />} />
-        <Route path='/addquestion' element={<Question />} />
         <Route path='/game/:id' element={<Game />} />
         <Route path='/gamearea/:id' element={<GameArea />} />
         <Route path='/status/:id' element={<Status />} />

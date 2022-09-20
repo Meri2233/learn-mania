@@ -7,6 +7,11 @@ export const reportSlice = createSlice({
   },
   reducers: {
     addReport: (state,action) => {
+      for (let i = 0; i < state.reports.length; i++) {
+        if (state.reports._id === action.payload._id) {
+          return;
+        }
+      }
       state.reports.push(action.payload);
     },
   },

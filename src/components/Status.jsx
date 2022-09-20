@@ -11,13 +11,11 @@ export default function Status() {
 
   let [result, setResult] = useState([]);
   let [winner, setWinner] = useState(null);
+  let [title, setTitle] = useState(null);
 
   let scores = useSelector(state => state.score.score);
   let student = useSelector(state => state.student.students)
   let room = useSelector(state => state.room.number);
-
-  console.log(student);
-  console.log(scores);
 
   useEffect(() => {
     if (!_id.includes('-')) {
@@ -37,6 +35,7 @@ export default function Status() {
               obj.count++;
             }
           }
+
           let percent = (obj.count / totalquestions) * 100;
           obj.percent = percent;
           if (p === undefined) {
@@ -48,17 +47,25 @@ export default function Status() {
             winner = obj.student;
           }
           data.push(obj);
+
         }
+
         socket.emit('send-winner-details', room, data, winner)
+      });
+
+      axiosClient.get(`/template/detail/:${_id}`).then(resp => {
+        let template = resp.data;
+        setTitle(template.title);
       });
 
       axiosClient({
         method: 'post',
         url: '/report/add',
         data: {
-          //title: title,
-          students:student,
-          scores: scores
+          title: title,
+          students: student,
+          scores: scores,
+          winner: winner
         }
       }).then((response) => {
         console.log(response)
@@ -68,7 +75,6 @@ export default function Status() {
   }, [])
 
   socket.on('winner-details', (data, winner) => {
-    console.log(data, winner);
     setResult(data);
     setWinner(winner);
   })
@@ -91,7 +97,7 @@ export default function Status() {
               )}
             </div>
           </div>
-          <button><Link style={{ textDecoration: 'none' }} to="/dashboard">Go Back</Link></button>
+          <button className='goback'><Link style={{ textDecoration: 'none' }} to="/dashboard">Go Back</Link></button>
         </div> :
         <div className='scorepagestudent'>
           <h3>{winner} won</h3>
@@ -108,7 +114,7 @@ export default function Status() {
               )}
             </div>
           </div>
-          <button><Link style={{ textDecoration: 'none' }} to="/">Go Back</Link></button>
+          <button className='goback'><Link style={{ textDecoration: 'none' }} to="/">Go Back</Link></button>
         </div>
       }
     </div>

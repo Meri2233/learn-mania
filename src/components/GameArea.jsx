@@ -118,9 +118,9 @@ export default function GameArea() {
                                         <div className='choice'><p className='choicenumber'>B</p><p>{quizQuestions[currquestion].choices[1].choice}</p></div>
                                     </div>
                                 }
-                            </div> : ""}
-                        <button onClick={() => changeQuestion()}>Next</button>
+                            </div> : ""}   
                     </div>
+                    <button onClick={() => changeQuestion()}>Next</button>
                     <div className="timebox"><div style={{ width: `${width}%` }} className="timebar"></div></div>
                 </div> :
                 <div className="studentscreen">
@@ -138,7 +138,7 @@ export default function GameArea() {
                                     </div> :
                                     <div className="choices">
                                         <Options changeColor={highlight} idx={0} value={"A"} currquestion={currquestion} color={selectedOption === 0 ? (quizQuestions[currquestion].choices[0].isCorrect ? "green" : "red") : null} />
-                                        <Options changeColor={highlight} idx={1} value={"B"} currquestion={currquestion} color={selectedOption === 1 ? (quizQuestions[currquestion].choices[0].isCorrect ? "green" : "red") : null} />
+                                        <Options changeColor={highlight} idx={1} value={"B"} currquestion={currquestion} color={selectedOption === 1 ? (quizQuestions[currquestion].choices[1].isCorrect ? "green" : "red") : null} />
                                     </div>
                                 }
                             </div> : ""

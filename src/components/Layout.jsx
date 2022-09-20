@@ -4,11 +4,12 @@ let prevevent;
 
 export default function Layout() {
     let accessToken = localStorage.getItem('access_token');
+    console.log(accessToken);
     let navigate = useNavigate()
 
     function logout(e) {
-        //localStorage.setItem('access_token', undefined);
-        //localStorage.setItem('refresh_token', undefined);
+        localStorage.removeItem("access_token")
+        localStorage.removeItem("refresh_token")
         navigate('/')
     }
     function changeColor(e) {
@@ -21,12 +22,11 @@ export default function Layout() {
         prevevent = e.target
     }
 
-    //<Link style={{ textDecoration: 'none' }} to="/login"><button className='signupbutton'>Login</button></Link>
     return (
         <div className='layout'>
             <div className="header">
                 <h3>QuizUp</h3>
-                {accessToken !== "undefined" ?
+                {accessToken !== null ?
                     <div className="dashboarditems">
                         <div className="items">
                             <Link style={{ textDecoration: 'none' }} to="/dashboard"><button onClick={(e) => changeColor(e)} className='myquizzes'>My Quizzes</button></Link>

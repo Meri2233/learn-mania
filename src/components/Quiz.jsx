@@ -27,7 +27,7 @@ export default function Quiz() {
                         <div className="contentsection">
                             <h4>{el.title}</h4>
                             <p>{el.description}</p>
-                            <div><p>Last edited:{el.editedAt}</p></div>
+                            <div><p>Last edited: {el.editedAt.substring(0,10)}</p></div>
                         </div>
                         <div className="buttonssection">
                             <button className="delete">x</button>
